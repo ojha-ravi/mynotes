@@ -3,12 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Notes</title>
+    <title>My Notes | Learning & Development</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-alt: #f9fafb;
+            --border: #e5e7eb;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        .notes-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .note-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .note-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .note-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .note-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .note-card .meta {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--bg-alt);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            color: var(--primary);
+            border: 1px solid var(--border);
+        }
+
+        .feedback-section {
+            background: var(--bg-alt);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feedback-section h2 {
+            margin-bottom: 1rem;
+            border-bottom: none;
+        }
+
+        .feedback-section p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.875rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            align-self: flex-start;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 3rem 1.5rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            main {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>My Notes</h1>
-    <ul>
-        <li><a href="agentic-ai-learning-roadmap.md">Agentic AI Learning Roadmap</a></li>
-    </ul>
+    <header>
+        <h1>My Notes</h1>
+        <p>A curated collection of learning resources and technical documentation</p>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>Learning Resources</h2>
+            <div class="notes-grid">
+                <a href="agentic-ai-learning-roadmap.html" class="note-card">
+                    <h3>Agentic AI Learning Roadmap</h3>
+                    <p>A comprehensive 10-week learning plan for mastering agentic AI systems, from fundamentals to production-ready multi-agent architectures.</p>
+                    <div class="meta">
+                        <span class="tag">AI/ML</span>
+                        <span class="tag">Agents</span>
+                        <span class="tag">LLMs</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="feedback-section">
+            <h2>Share Your Feedback</h2>
+            <p>Your feedback helps improve these resources. Have suggestions, corrections, or want to request new content? Let me know!</p>
+            <form class="feedback-form" action="mailto:feedback@example.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="feedback">Feedback</label>
+                    <textarea id="feedback" name="feedback" placeholder="Share your thoughts, suggestions, or report any issues..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Feedback</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Open to collaboration and feedback. Connect via <a href="https://github.com">GitHub</a>.</p>
+    </footer>
 </body>
 </html>

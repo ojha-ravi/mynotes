@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic AI Learning Roadmap | My Notes</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #dbeafe;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-alt: #f9fafb;
+            --border: #e5e7eb;
+            --success: #10b981;
+            --accent: #8b5cf6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        nav.breadcrumb {
+            padding: 1rem 2rem;
+            background: var(--bg-alt);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav.breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: var(--text-light);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .principle-box {
+            background: linear-gradient(135deg, var(--primary-light) 0%, #ede9fe 100%);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 3rem;
+        }
+
+        .principle-box p {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary-dark);
+        }
+
+        .week-section {
+            margin-bottom: 2.5rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .week-header {
+            background: var(--bg-alt);
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .week-badge {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .week-header h2 {
+            font-size: 1.3rem;
+            color: var(--text);
+        }
+
+        .week-content {
+            padding: 1.5rem;
+        }
+
+        .week-content h3 {
+            font-size: 1rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .week-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .week-content li {
+            padding: 0.5rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+        }
+
+        .week-content li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.9rem;
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .insight {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.25rem;
+            margin-top: 1rem;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #92400e;
+        }
+
+        section.topics {
+            margin: 3rem 0;
+        }
+
+        section.topics h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        .topics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .topics-table th,
+        .topics-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .topics-table th {
+            background: var(--bg-alt);
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .topics-table tr:hover {
+            background: var(--bg-alt);
+        }
+
+        .topics-table td:first-child {
+            font-weight: 500;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+
+        .philosophy-section {
+            background: var(--bg-alt);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+
+        .philosophy-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .code-block {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+
+        .why-section {
+            margin: 3rem 0;
+        }
+
+        .why-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .why-section p {
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, var(--primary-light) 0%, #ede9fe 100%);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .source {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 3rem 1.5rem;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            main {
+                padding: 2rem 1rem;
+            }
+
+            .week-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .topics-table {
+                font-size: 0.9rem;
+            }
+
+            .topics-table th,
+            .topics-table td {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Agentic AI Learning Roadmap</h1>
+        <p class="tagline">A structured 10-week journey from fundamentals to production-ready AI agents</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="index.html">Home</a> <span>/</span> <span>Agentic AI Learning Roadmap</span>
+    </nav>
+
+    <main>
+        <div class="principle-box">
+            <p>Core Principle: You learn agentic AI by building agents. Not by reading about them, not by watching videos - by building.</p>
+        </div>
+
+        <section class="week-section">
+            <div class="week-header">
+                <span class="week-badge">Weeks 1-2</span>
+                <h2>Fundamentals</h2>
+            </div>
+            <div class="week-content">
+                <h3>Goals</h3>
+                <ul>
+                    <li>Understand how LLMs work</li>
+                    <li>Learn the basics of prompt engineering</li>
+                    <li>Make your first API call to an LLM (Claude, OpenAI, etc.)</li>
+                    <li>Build a simple chatbot</li>
+                    <li>Get comfortable with developer tools</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="week-section">
+            <div class="week-header">
+                <span class="week-badge">Weeks 3-4</span>
+                <h2>Build Your First Agent</h2>
+            </div>
+            <div class="week-content">
+                <h3>Goals</h3>
+                <ul>
+                    <li>Implement the ReAct loop yourself from scratch</li>
+                    <li>Add a web search tool</li>
+                    <li>Add code execution capability</li>
+                    <li>Build something that uses tools to answer questions it couldn't answer alone</li>
+                </ul>
+                <div class="insight">This is where things click.</div>
+            </div>
+        </section>
+
+        <section class="week-section">
+            <div class="week-header">
+                <span class="week-badge">Weeks 5-6</span>
+                <h2>RAG and Memory</h2>
+            </div>
+            <div class="week-content">
+                <h3>Goals</h3>
+                <ul>
+                    <li>Set up Chroma locally (takes ~5 minutes)</li>
+                    <li>Build a basic RAG pipeline with documents you care about</li>
+                    <li>Experiment with different chunking strategies</li>
+                    <li>Implement hybrid retrieval (keyword search + semantic search)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="week-section">
+            <div class="week-header">
+                <span class="week-badge">Weeks 7-8</span>
+                <h2>Advanced Architectures</h2>
+            </div>
+            <div class="week-content">
+                <h3>Goals</h3>
+                <ul>
+                    <li>Learn LangChain or LlamaIndex properly</li>
+                    <li>Implement "Plan and Execute" for structured workflows</li>
+                    <li>Add long-term memory</li>
+                    <li>Explore MCP (Model Context Protocol) servers</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="week-section">
+            <div class="week-header">
+                <span class="week-badge">Weeks 9-10</span>
+                <h2>Multi-Agent Systems</h2>
+            </div>
+            <div class="week-content">
+                <h3>Goals</h3>
+                <ul>
+                    <li>Build a two-agent system where one agent checks the other's work</li>
+                    <li>Implement an orchestrator-worker pattern</li>
+                    <li>Try CrewAI for role-based agents</li>
+                </ul>
+                <div class="insight">This is where the real power becomes obvious.</div>
+            </div>
+        </section>
+
+        <section class="week-section">
+            <div class="week-header">
+                <span class="week-badge">Final Stretch</span>
+                <h2>Production Readiness</h2>
+            </div>
+            <div class="week-content">
+                <h3>Goals</h3>
+                <ul>
+                    <li>Add guardrails and safety checks</li>
+                    <li>Set up observability to monitor agent behavior at every step</li>
+                    <li>Measure key metrics: Success rate, Step efficiency, Latency, Cost</li>
+                    <li>Deploy something real</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="topics">
+            <h2>Key Topics Covered</h2>
+            <table class="topics-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Topics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Foundations</td>
+                        <td>AI basics, neural networks, transformers</td>
+                    </tr>
+                    <tr>
+                        <td>Language Models</td>
+                        <td>How LLMs generate text</td>
+                    </tr>
+                    <tr>
+                        <td>Agents</td>
+                        <td>Core agent loop, function calling, tools</td>
+                    </tr>
+                    <tr>
+                        <td>Memory & Retrieval</td>
+                        <td>Memory systems, RAG, vector databases, embeddings</td>
+                    </tr>
+                    <tr>
+                        <td>Infrastructure</td>
+                        <td>MCP (Model Context Protocol)</td>
+                    </tr>
+                    <tr>
+                        <td>Architecture</td>
+                        <td>Agent architectures, multi-agent systems</td>
+                    </tr>
+                    <tr>
+                        <td>Implementation</td>
+                        <td>Frameworks, safety considerations</td>
+                    </tr>
+                    <tr>
+                        <td>Applications</td>
+                        <td>Real-world use cases</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="philosophy-section">
+            <h2>Building Philosophy</h2>
+            <div class="code-block">
+Start small:
+  - One agent
+  - One task
+  - A few tools
+  - Get it working end-to-end
+
+Then add complexity:
+  - Build on foundations that already work
+            </div>
+        </section>
+
+        <section class="why-section">
+            <h2>Why This Matters</h2>
+            <p>
+                The shift from <span class="highlight">AI that answers questions</span> to
+                <span class="highlight">AI that completes goals</span> is as significant as the shift
+                from static web pages to dynamic web applications - maybe bigger.
+            </p>
+            <p>
+                Understanding not just <em>what</em> these tools are, but <em>how they fit together</em>,
+                <em>how to build with them</em>, and <em>how to build safely</em> will be incredibly
+                valuable in the years ahead.
+            </p>
+        </section>
+
+        <div class="source">
+            Source: "Complete Agentic AI Course - AI Agents, RAG, Embeddings, Architectures, Framework, VectorDB & Memory"
+        </div>
+    </main>
+
+    <footer>
+        <p><a href="index.html">Back to Home</a></p>
+    </footer>
+</body>
+</html>
